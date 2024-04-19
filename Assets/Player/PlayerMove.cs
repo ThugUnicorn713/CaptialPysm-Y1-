@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMove : MonoBehaviour
 {
 
     CharacterController characterController;
-    Transform playerContainer, cameraContainer;
+    public Transform playerContainer, MainCamera;
 
     [SerializeField] public float speed = 3.0f;
     public float jumpSpeed = 2f;
@@ -73,6 +74,7 @@ public class PlayerMove : MonoBehaviour
 
         transform.Rotate(0f, rotateX, 0f);
 
-        cameraContainer.transform.localRotation = Quaternion.Euler(rotateY, 0f, 0f);
+        MainCamera.transform.localRotation = Quaternion.Euler(rotateY, 0f, 0f);
+       
     }
 }
