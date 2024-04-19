@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] public float speed = 3.0f;
     public float jumpSpeed = 2f;
     public float mouseSensitivity = 2f;
-    public float gravity = 50.0f;
+    public float gravity = 20.0f;
     public float lookUpClamp = -30f;
     public float lookDownClamp = 60f;
 
@@ -55,8 +55,8 @@ public class PlayerMove : MonoBehaviour
         }
         else //if (Input.GetKeyUp(KeyCode.C))
         {
-            characterController.height = 2f;
-            characterController.center = new Vector3(0f, 1f, 0f);
+            characterController.height = 1f;
+            characterController.center = new Vector3(0f, 0.7f, 0f);
         }
 
         moveDirection.y -= gravity * Time.deltaTime;
@@ -73,6 +73,6 @@ public class PlayerMove : MonoBehaviour
 
         transform.Rotate(0f, rotateX, 0f);
 
-        //cameraContainer.transform.localRotation = Quaternion.Euler(rotateY, 0f, 0f);
+        cameraContainer.transform.localRotation = Quaternion.Euler(rotateY, 0f, 0f);
     }
 }
