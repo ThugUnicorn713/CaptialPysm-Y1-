@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoomGenerator : MonoBehaviour {
     
-    [SerializeField] GameObject[] halls;    
+    [SerializeField] GameObject Hall;    
     [SerializeField] GameObject[] rooms;
 
     private static RoomGenerator Instance; //hold ref of this script
@@ -29,12 +29,12 @@ public class RoomGenerator : MonoBehaviour {
         int index = Random.Range(0, rooms.Length);
         return rooms[index];
     }
-
+    /*
     public static GameObject GetHall()
     {
         GameObject[] halls = RoomGenerator.GetInstance().halls;
         int index = Random.Range(0, halls.Length);
         return halls[index];
     }
-
+    */
 }
