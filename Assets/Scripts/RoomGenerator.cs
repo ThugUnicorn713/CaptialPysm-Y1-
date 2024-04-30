@@ -62,19 +62,25 @@ public class RoomGenerator : MonoBehaviour
         return null;
     }
 
-    public Vector3 FindPlayerHallPosition()
+    public Transform FindPlayerHallPosition()
     {
         hall = GetHall();
 
-        Collider[] colliders = hall.GetComponentsInChildren<Collider>(true);
-        foreach (Collider collider in colliders)
+        if (hall != null)
         {
-            if (collider.gameObject != hall && collider.gameObject.transform.childCount == 0)
+            Transform transform = hall.transform.Find("PlacePlayer");
+            Debug.Log("TRANSFORM: " + transform.parent.name);
+
+            if (transform != null)
             {
-                return collider.gameObject.transform.position;
+                Debug.Log("SPAWN: " + transform.parent.name + " | " + transform.gameObject.transform.position);
+       
+                return transform;
             }
-        } 
-        return Vector3.zero;
+        }
+
+        return null;
+
     }
     public GameObject GetHall()
     {

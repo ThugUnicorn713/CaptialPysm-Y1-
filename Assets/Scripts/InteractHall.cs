@@ -4,54 +4,29 @@ using UnityEngine;
 
 public class InteractHall : MonoBehaviour
 {
-    [SerializeField] private bool triggerActive = false;
+    Camera cam;
     public GameObject playerObject;
 
-    public void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (other.CompareTag("Player"))
+        cam = playerObject.GetComponentInChildren<Camera>();
+    }
+
+    public void SendToHall()
+    {
+        RoomGenerator.GetInstance().GetHall();
+
+        Transform tform = RoomGenerator.GetInstance().FindPlayerHallPosition();
+        if (transform != null)
         {
-            triggerActive = true;
+            // Set the player's position to the empty GameObject
+            playerObject.transform.position = tform.position;
+            playerObject.transform.rotation = tform.rotation;
+        }
+        else
+        {
+            Debug.LogWarning("No empty GameObject found inside the spawned object.");
         }
     }
 
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            triggerActive = false;
-        }
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (triggerActive && Input.GetKeyDown(KeyCode.E))
-        {
-            PressE();
-            RoomGenerator.GetInstance().GetHall();
-
-            if (triggerActive == true)
-            {
-
-                Vector3 position = RoomGenerator.GetInstance().FindPlayerHallPosition();
-                if (position != Vector3.zero)
-                {
-                    // Set the player's position to the empty GameObject
-                    playerObject.transform.position = position;
-                }
-                else
-                {
-                    Debug.LogWarning("No empty GameObject found inside the spawned object.");
-                }
-
-            }
-        }
-    }
-
-    public void PressE()
-    {
-        Debug.Log("I have been touched " + gameObject.name);
-    }
 }
