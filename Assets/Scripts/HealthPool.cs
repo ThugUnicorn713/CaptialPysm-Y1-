@@ -6,8 +6,10 @@ public class HealthPool : MonoBehaviour
 {
    
     [SerializeField] float hitPoints = 100f;
-    [SerializeField] float rawDamage = 5f;
-        void Hit(float rawDamage)
+    [SerializeField] float rawDamage = 10f;
+    [SerializeField] float benniDamage = 15f;
+
+    void Hit(float rawDamage)
         {
             hitPoints -= rawDamage;
 
@@ -15,7 +17,9 @@ public class HealthPool : MonoBehaviour
 
             if (hitPoints <= 0)
             {
-                Debug.Log("I DIED!!!");
+                Debug.Log("I DIED!!! GAME OVER");
+                Destroy(gameObject);
+            
             }
         }
 
@@ -27,10 +31,10 @@ public class HealthPool : MonoBehaviour
         {
             Hit(rawDamage);
         }
-        else if (collision.gameObject.CompareTag("Bullet"))
+        else if (collision.gameObject.CompareTag("Benni"))
         {
-            Hit(rawDamage);
-
+            Hit(benniDamage);
         }
+        
     }
 }

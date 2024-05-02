@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickMeUp : MonoBehaviour
+public class PickPiggyUp : MonoBehaviour
 {
     Camera cam;
     [SerializeField] GameObject Piggy;
+    public GameObject enemy;
+    public Transform[] spawnPoints;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class PickMeUp : MonoBehaviour
     void Update()
     {
         PickUpPiggy();
+        
     }
 
     private void PickUpPiggy()
@@ -26,7 +29,7 @@ public class PickMeUp : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("F PRESSED");
-            float distance = 2f;
+            float distance = 3f;
 
             //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             Ray ray = new Ray(cam.transform.position, cam.transform.forward);
@@ -38,8 +41,20 @@ public class PickMeUp : MonoBehaviour
                 {
                     Piggy.SetActive(true);
                     Destroy(hit.collider.gameObject);
+                    SpawnEnemies();
                 }
             }
         }
     }
+
+    public void SpawnEnemies()
+    {
+       foreach(Transform spawnPoint in spawnPoints)
+       {
+            Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        
+       }
+    
+    }
+    
 }

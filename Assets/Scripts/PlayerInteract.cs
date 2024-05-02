@@ -27,23 +27,23 @@ public class PlayerInteract : MonoBehaviour
                     Debug.Log("You have used the door");
 
                     var interact = hit.transform.GetComponent<Interact>();
-                    if (interact != null)
-                    {
+                      if (interact != null)
+                      {
                         Debug.Log(hit.transform.name + " has Interact, sending to room");
                         interact.SendToRoom();
-                    }
+                      }
                     var interactHall = hit.transform.GetComponent<InteractHall>();
-                    if (interactHall != null)
-                    {
-                        Debug.Log(hit.transform.name + " has InteractHall, sending to hall");
-                        interactHall.SendToHall();
-                    }
+                        if (interactHall != null)
+                        {
+                         Debug.Log(hit.transform.name + " has InteractHall, sending to hall");
+                         interactHall.SendToHall();
+                        }
                     var getBossRoom = hit.transform.GetComponent<GetBossRoom>();
-                    if (getBossRoom != null)
-                    {
+                     if (getBossRoom != null)
+                     {
                         Debug.Log(hit.transform.name + " has GetBossRoom, sending to Benni");
                         getBossRoom.SendToBoss();
-                    }
+                     }
                    
                 }
             }

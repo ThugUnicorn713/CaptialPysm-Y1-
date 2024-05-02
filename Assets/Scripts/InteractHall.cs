@@ -17,11 +17,15 @@ public class InteractHall : MonoBehaviour
         RoomGenerator.GetInstance().GetHall();
 
         Transform tform = RoomGenerator.GetInstance().FindPlayerHallPosition();
+        Debug.Log("Transform passed: | " + tform);
         if (transform != null)
         {
+            Debug.Log("This is where the player is now:" + playerObject.transform.position);
             // Set the player's position to the empty GameObject
             playerObject.transform.position = tform.position;
-            playerObject.transform.rotation = tform.rotation;
+            //playerObject.transform.rotation = tform.rotation;
+
+            Debug.Log("This is where I think the player is:" + playerObject.transform.position);
         }
         else
         {

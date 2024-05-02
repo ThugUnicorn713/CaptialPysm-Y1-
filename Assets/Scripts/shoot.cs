@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class shoot : MonoBehaviour
@@ -22,5 +23,10 @@ public class shoot : MonoBehaviour
 
             billbullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(launchVelocity, 0, 0));
         }
+
+       
+
     }
+
+    
 }

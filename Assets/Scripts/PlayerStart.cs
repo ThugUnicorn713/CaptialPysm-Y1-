@@ -8,11 +8,11 @@ public class PlayerStart : MonoBehaviour
 
     private void Start()
     {
-        Awake();
+        //Awake();
     }
-    private void Awake()
+   /* private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = playerStart;
-    }
+    }*/
 }

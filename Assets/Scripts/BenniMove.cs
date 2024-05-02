@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMove : MonoBehaviour
+public class BenniMove : MonoBehaviour
 {
-    
+
     public Transform player;
     public NavMeshAgent agent;
-    [SerializeField] float sight = 5f; 
+    [SerializeField] float sight = 7f;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        
+
     }
 
     private void Update()
@@ -23,4 +23,5 @@ public class EnemyMove : MonoBehaviour
             agent.destination = player.position;
         }
     }
+
 }

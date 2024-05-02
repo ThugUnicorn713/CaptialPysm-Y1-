@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] public float speed = 3.0f;
     public float jumpSpeed = 2f;
-    public float mouseSensitivity = 2f;
+    public float mouseSensitivity = 1f;
     public float gravity = 20.0f;
     public float lookUpClamp = -30f;
     public float lookDownClamp = 60f;
