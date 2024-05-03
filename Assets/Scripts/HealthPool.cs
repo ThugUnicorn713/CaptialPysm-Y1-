@@ -9,8 +9,8 @@ public class HealthPool : MonoBehaviour
     [SerializeField] float rawDamage = 10f;
     [SerializeField] float benniDamage = 15f;
 
-    void Hit(float rawDamage)
-        {
+   public void Hit(float rawDamage)
+   {
             hitPoints -= rawDamage;
 
             Debug.Log($"NOOOO: {hitPoints}");
@@ -21,7 +21,7 @@ public class HealthPool : MonoBehaviour
                 Destroy(gameObject);
             
             }
-        }
+   }
 
     private void OnCollisionEnter(Collision collision)
     {

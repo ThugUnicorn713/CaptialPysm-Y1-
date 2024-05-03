@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class SpawnEnemyStart : MonoBehaviour
 {
+    public GameObject playerObject;
     public GameObject enemy;
     public Transform[] spawnPoints;
 
@@ -14,7 +15,9 @@ public class SpawnEnemyStart : MonoBehaviour
     {
         foreach (Transform spawnPoint in spawnPoints)
         {
-            Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+            GameObject enemyInst =  Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+            EnemyMove move = enemyInst.GetComponent<EnemyMove>();
+            move.player = playerObject.transform;
 
         }
 

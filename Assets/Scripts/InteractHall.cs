@@ -20,12 +20,13 @@ public class InteractHall : MonoBehaviour
         Debug.Log("Transform passed: | " + tform);
         if (transform != null)
         {
-            Debug.Log("This is where the player is now:" + playerObject.transform.position);
-            // Set the player's position to the empty GameObject
-            playerObject.transform.position = tform.position;
-            //playerObject.transform.rotation = tform.rotation;
+            CharacterController characterController = playerObject.GetComponent<CharacterController>();
+            characterController.enabled = false;
 
-            Debug.Log("This is where I think the player is:" + playerObject.transform.position);
+            //add hall pickup script here!!! 
+            
+            playerObject.transform.SetPositionAndRotation(tform.position, tform.rotation);
+            characterController.enabled = true; 
         }
         else
         {

@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class DestroyinJump : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider collison)
     {
-        if (CompareTag("Player"))
-        {
-            if (gameObject.CompareTag("lava"))
+            if (collison.gameObject.CompareTag("lava"))
             {
                 Debug.Log("OOPS LAVA, GAME OVER");
-                Destroy(gameObject);
-            }
-        }
+                gameObject.SetActive(false);
+            } 
     }
 }

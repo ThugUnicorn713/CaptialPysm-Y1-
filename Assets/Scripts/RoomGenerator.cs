@@ -22,7 +22,7 @@ public class RoomGenerator : MonoBehaviour
         return Instance;
     }
 
-    public Vector3 FindPlayerPosition()
+    public Transform FindPlayerPosition()
     {
         spawnRoom = GetRoom();
 
@@ -31,10 +31,10 @@ public class RoomGenerator : MonoBehaviour
         {
             if (collider.gameObject != spawnRoom && collider.gameObject.transform.childCount == 0)
             {
-                return collider.gameObject.transform.position;
+                return collider.gameObject.transform;
             }
         }
-        return Vector3.zero;
+        return null;
     }
 
     public GameObject GetRoom()
@@ -89,7 +89,7 @@ public class RoomGenerator : MonoBehaviour
         GameObject hall = GameObject.Find("Hall");
         return hall;
     }
-    public Vector3 FindPlayerBossPosition()
+    public Transform FindPlayerBossPosition()
     {
         bossRoom = GetBossRoom();
 
@@ -98,10 +98,10 @@ public class RoomGenerator : MonoBehaviour
         {
             if (collider.gameObject != bossRoom && collider.gameObject.transform.childCount == 0)
             {
-                return collider.gameObject.transform.position;
+                return collider.gameObject.transform;
             }
         }
-        return Vector3.zero;
+        return null ;
     }
     public GameObject GetBossRoom()
     { 

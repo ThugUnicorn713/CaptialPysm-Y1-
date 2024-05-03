@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 6054409369534791924}
   - component: {fileID: 8933143471715220696}
   - component: {fileID: 2845076937271731933}
+  - component: {fileID: 7532789243046886936}
   m_Layer: 0
   m_Name: 'Player '
   m_TagString: Player
@@ -124,7 +125,7 @@ Transform:
   m_GameObject: {fileID: 476984629267461791}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -68.1, y: 0.213, z: -59.9}
+  m_LocalPosition: {x: 16.357983, y: 1.5020216, z: -8.229214}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -196,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoints: 100
   rawDamage: 10
+  benniDamage: 15
 --- !u!136 &540963373828030201
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -276,6 +278,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &7532789243046886936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476984629267461791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f149117f91332144bbc28cefaf470533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2180385099030305477
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,7 +533,6 @@ GameObject:
   - component: {fileID: 6873937142329497528}
   - component: {fileID: 5304074987738554470}
   - component: {fileID: 1488698201983334938}
-  - component: {fileID: 366699535499535452}
   m_Layer: 0
   m_Name: BillBullet
   m_TagString: Bullet
@@ -642,19 +655,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &366699535499535452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4655150951730747921}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 465cbb51a157eb44aa3489328521122a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floor: {fileID: 0}
 --- !u!1 &5595332474534328694
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 3938392609870310716}
   m_Layer: 0
   m_Name: GroundCheck
-  m_TagString: Untagged
+  m_TagString: groundcheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

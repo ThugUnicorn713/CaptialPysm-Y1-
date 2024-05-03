@@ -9,6 +9,7 @@ public class PickPiggyUp : MonoBehaviour
     public GameObject enemy;
     public Transform[] spawnPoints;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,12 +50,14 @@ public class PickPiggyUp : MonoBehaviour
 
     public void SpawnEnemies()
     {
-       foreach(Transform spawnPoint in spawnPoints)
-       {
-            Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-        
-       }
-    
+        foreach (Transform spawnPoint in spawnPoints)
+        {
+            GameObject enemyInst = Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+            EnemyMove move = enemyInst.GetComponent<EnemyMove>();
+            move.player = gameObject.transform;
+
+        }
+
     }
     
 }

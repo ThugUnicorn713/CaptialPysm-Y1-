@@ -22,11 +22,13 @@ public class Interact : MonoBehaviour
     public void SendToRoom() {
         RoomGenerator.GetInstance().GetRoom();
 
-        Vector3 position = RoomGenerator.GetInstance().FindPlayerPosition();
-        if (position != Vector3.zero)
+        Transform tform = RoomGenerator.GetInstance().FindPlayerPosition();
+        if (tform != null)
         {
-            // Set the player's position to the empty GameObject
-            playerObject.transform.position = position;
+            CharacterController characterController = playerObject.GetComponent<CharacterController>();
+            characterController.enabled = false;
+            playerObject.transform.SetPositionAndRotation(tform.position, tform.rotation);
+            characterController.enabled = true;
         }
         else
         {

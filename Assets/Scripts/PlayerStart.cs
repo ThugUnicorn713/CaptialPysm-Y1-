@@ -6,13 +6,9 @@ public class PlayerStart : MonoBehaviour
 {
     [SerializeField] private Vector3 playerStart;
 
-    private void Start()
+    private void Awake()
     {
-        //Awake();
+        /*GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.transform.position = playerStart;*/
     }
-   /* private void Awake()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.position = playerStart;
-    }*/
 }

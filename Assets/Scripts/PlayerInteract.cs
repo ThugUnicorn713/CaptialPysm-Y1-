@@ -6,6 +6,7 @@ using static UnityEditor.Progress;
 public class PlayerInteract : MonoBehaviour
 {
     Camera cam;
+   
 
     private void Start()
     {
@@ -26,27 +27,41 @@ public class PlayerInteract : MonoBehaviour
                 {
                     Debug.Log("You have used the door");
 
-                    var interact = hit.transform.GetComponent<Interact>();
-                      if (interact != null)
-                      {
+                    if (hit.transform.TryGetComponent<Interact>(out Interact interact))
+                    {
                         Debug.Log(hit.transform.name + " has Interact, sending to room");
                         interact.SendToRoom();
-                      }
-                    var interactHall = hit.transform.GetComponent<InteractHall>();
-                        if (interactHall != null)
-                        {
-                         Debug.Log(hit.transform.name + " has InteractHall, sending to hall");
-                         interactHall.SendToHall();
-                        }
-                    var getBossRoom = hit.transform.GetComponent<GetBossRoom>();
-                     if (getBossRoom != null)
-                     {
+
+                    }
+                    else if (hit.transform.TryGetComponent<InteractHall>(out InteractHall interactHall))
+                    {
+                        Debug.Log(hit.transform.name + " has InteractHall, sending to hall");
+                        interactHall.SendToHall();
+
+                    }
+                    else if (hit.transform.TryGetComponent<GetBossRoom>(out GetBossRoom getBossRoom))
+                    {
                         Debug.Log(hit.transform.name + " has GetBossRoom, sending to Benni");
                         getBossRoom.SendToBoss();
-                     }
-                   
+
+                    }
+                    else if (hit.transform.TryGetComponent<DeathDoor>(out DeathDoor deathDoor))
+                    {
+                        Debug.Log(hit.transform.name + " has DeathDoor, kill this mf");
+                        deathDoor.KillPlayer();
+
+                    }
+                    else if (hit.transform.TryGetComponent<PickUpz>(out PickUpz pickUpz))
+                    {
+                        Debug.Log(hit.transform.name + " has Money, MAKE IT RAIN!!!");
+                        pickUpz.Give();
+
+                    }
+
                 }
+                
             }
+            
         }
     }
 

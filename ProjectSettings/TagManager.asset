@@ -11,6 +11,8 @@ TagManager:
   - Weapon
   - Benni
   - lava
+  - groundcheck
+  - DeathDoor
   layers:
   - Default
   - TransparentFX

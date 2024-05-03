@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyMove : MonoBehaviour
 {
-    
+
     public Transform player;
     public NavMeshAgent agent;
     [SerializeField] float sight = 5f; 
