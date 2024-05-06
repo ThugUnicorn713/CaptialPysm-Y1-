@@ -18,18 +18,23 @@ public class shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && moneyPool > 0)
+        if (Input.GetButtonDown("Fire1"))
         {
-            GameObject billbullet = Instantiate(bullet, transform.position,transform.rotation);
+            if (moneyPool > 0)
+            {
 
-            billbullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(launchVelocity, 0, 0));
+                GameObject billbullet = Instantiate(bullet, transform.position, transform.rotation);
 
-            moneyPool--;
+                billbullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(launchVelocity, 0, 0));
+
+                moneyPool--;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        
 
     }
     

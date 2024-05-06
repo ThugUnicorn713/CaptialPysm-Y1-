@@ -6,6 +6,8 @@ public class InteractHall : MonoBehaviour
 {
     Camera cam;
     public GameObject playerObject;
+    public GameObject hallReward;
+    public Transform spawnPoint;
 
     private void Start()
     {
@@ -23,8 +25,10 @@ public class InteractHall : MonoBehaviour
             CharacterController characterController = playerObject.GetComponent<CharacterController>();
             characterController.enabled = false;
 
-            //add hall pickup script here!!! 
-            
+            GameObject hallReward = HallMoney.GetInstance().GetHallReward();
+
+            Instantiate(hallReward, spawnPoint.position, Quaternion.identity);
+
             playerObject.transform.SetPositionAndRotation(tform.position, tform.rotation);
             characterController.enabled = true; 
         }

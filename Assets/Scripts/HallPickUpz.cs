@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpz : MonoBehaviour
+public class HallPickUpz : MonoBehaviour
 {
     public int amount = 5000;
-    public void Give()
+    public void GiveHallPick()
     { 
         GameObject.Find("Piggy").GetComponent<shoot>().moneyPool += amount;
+        Debug.Log("You now have" +  amount);
         Destroy(gameObject);
 
     }

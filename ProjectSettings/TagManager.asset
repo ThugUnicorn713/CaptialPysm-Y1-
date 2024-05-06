@@ -13,6 +13,7 @@ TagManager:
   - lava
   - groundcheck
   - DeathDoor
+  - Piggy
   layers:
   - Default
   - TransparentFX
