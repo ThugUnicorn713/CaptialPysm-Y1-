@@ -63,6 +63,21 @@ public class PlayerInteract : MonoBehaviour
                     Debug.Log(hit.transform.name + " has a hall pick up!");
                     hallpickupz.GiveHallPick();
                 }
+                else if (hit.transform.TryGetComponent<Pin>(out Pin pin))
+                {
+                    Debug.Log(hit.transform.name + " has a pin #!");
+                    pin.OpenPin();
+                }
+                else if (hit.transform.TryGetComponent<ATM>(out ATM atm))
+                {
+                    Debug.Log(hit.transform.name + " has A way for you to enter PIN!");
+                    atm.OpenATM();
+                }
+                else if (hit.transform.TryGetComponent<PTG>(out PTG ptg))
+                {
+                    Debug.Log(hit.transform.name + " has an ultimite test...");
+                    ptg.OpenPanel();
+                }
             }
         }
     }

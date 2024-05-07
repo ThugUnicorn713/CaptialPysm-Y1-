@@ -37,12 +37,17 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         Locomotion();
-        RotateAndLook();
+
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            RotateAndLook();
+        }
+
     }
 
-    
 
-    void Locomotion()
+
+        void Locomotion()
     {
         if (characterController.isGrounded) // When grounded, set y-axis to zero (to ignore it)
         {
