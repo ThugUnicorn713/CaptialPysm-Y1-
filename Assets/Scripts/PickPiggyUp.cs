@@ -2,18 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PickPiggyUp : MonoBehaviour
 {
     Camera cam;
     [SerializeField] GameObject Piggy;
     public GameObject enemy;
     public Transform[] spawnPoints;
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
         cam = this.GetComponentInChildren<Camera>();
+
+       
+    
 
     }
 
@@ -41,11 +46,13 @@ public class PickPiggyUp : MonoBehaviour
                 if ((hit.transform.name == "Piggy"))
                 {
                     Piggy.SetActive(true);
+                    GameManager.instance.SeeBankText();
                     Destroy(hit.collider.gameObject);
                     SpawnEnemies();
                 }
             }
-        }
+
+        }    
     }
 
     public void SpawnEnemies()

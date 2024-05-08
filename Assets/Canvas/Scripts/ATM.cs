@@ -27,6 +27,7 @@ public class ATM : MonoBehaviour
         if (userInput.text == pin.ToString())
         {
             piggy.GetComponent<shoot>().moneyPool += 1000000;
+            GameManager.instance.UpdateBankUI();
             gameObject.SetActive(false); ;
             Debug.Log("1000000 added, bands on bands on bands!");
         }

@@ -13,6 +13,11 @@ public class PTG : MonoBehaviour
     public GameObject spawnPoint;
     public int enemyAmount = 10;
 
+
+    private void Start()
+    {
+        gameObject.SetActive(true);
+    }
     public void OpenPanel()
     {
         Cursor.lockState = CursorLockMode.None;

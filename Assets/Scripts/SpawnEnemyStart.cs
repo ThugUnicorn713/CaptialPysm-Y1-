@@ -10,8 +10,14 @@ public class SpawnEnemyStart : MonoBehaviour
     public GameObject enemy;
     public Transform[] spawnPoints;
 
-
-    private void Start()
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == playerObject)
+        {
+            SpawnEnemies();
+        }
+    }
+    void SpawnEnemies()
     {
         foreach (Transform spawnPoint in spawnPoints)
         {

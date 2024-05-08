@@ -78,6 +78,11 @@ public class PlayerInteract : MonoBehaviour
                     Debug.Log(hit.transform.name + " has an ultimite test...");
                     ptg.OpenPanel();
                 }
+                else if (hit.transform.TryGetComponent<Win>(out Win win))
+                {
+                    Debug.Log(hit.transform.name + "YOUR WIN SCORE");
+                    win.GetWinPanel();
+                }
             }
         }
     }

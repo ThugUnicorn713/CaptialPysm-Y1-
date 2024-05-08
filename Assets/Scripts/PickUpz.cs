@@ -8,6 +8,8 @@ public class PickUpz : MonoBehaviour
     public void Give()
     { 
         GameObject.Find("Piggy").GetComponent<shoot>().moneyPool += amount;
+        GameManager.instance.UpdateBankUI();
+        
         Destroy(gameObject);
 
     }

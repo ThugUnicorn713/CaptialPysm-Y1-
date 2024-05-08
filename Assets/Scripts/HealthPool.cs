@@ -1,26 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class HealthPool : MonoBehaviour
 {
    
-    [SerializeField] float hitPoints = 100f;
-    [SerializeField] float rawDamage = 10f;
+     public float hitPoints = 100f;
+    [SerializeField] float damage = 10f;
     [SerializeField] float benniDamage = 15f;
+    [SerializeField] string playDeath = "DeathScene";
 
-   public void Hit(float rawDamage)
+     public void Hit(float damage)
    {
-            hitPoints -= rawDamage;
+            hitPoints -= damage;
 
             Debug.Log($"NOOOO: {hitPoints}");
 
             if (hitPoints <= 0)
             {
                 Debug.Log("I DIED!!! GAME OVER");
+                SceneManager.LoadScene(playDeath);
                 Destroy(gameObject);
             
             }
+
+            GameManager.instance.UpdateHealthUI();
    }
 
     private void OnCollisionEnter(Collision collision)
@@ -29,7 +35,7 @@ public class HealthPool : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Hit(rawDamage);
+            Hit(damage);
         }
         else if (collision.gameObject.CompareTag("Benni"))
         {
