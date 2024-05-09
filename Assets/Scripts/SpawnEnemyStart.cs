@@ -15,6 +15,7 @@ public class SpawnEnemyStart : MonoBehaviour
         if (other.gameObject == playerObject)
         {
             SpawnEnemies();
+            gameObject.SetActive(false);
         }
     }
     void SpawnEnemies()

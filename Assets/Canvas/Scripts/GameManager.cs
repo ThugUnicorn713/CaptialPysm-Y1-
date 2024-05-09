@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI finalScore;
 
     public GameObject seeText;
+    public GameObject seeHealthText;
+    public GameObject seeCenter;
+
+
 
     public void Awake()
     {
@@ -52,7 +56,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    public void PrintWinScore()
+    {
+        if (finalScore != null && piggyBank != null)
+        {
+            finalScore.text = piggyBank.moneyPool.ToString() + " Pounds !";
+        }
+    }
+
+
     public void SeeBankText()
     {
         seeText.SetActive(true);
@@ -63,11 +75,25 @@ public class GameManager : MonoBehaviour
         seeText.SetActive(false);
     }
 
-    public void PrintWinScore()
+    public void SeeHealthText()
     {
-        if (finalScore != null && piggyBank != null)
-        {
-            finalScore.text = piggyBank.moneyPool.ToString() + " Pounds !";
-        }
+        seeHealthText.SetActive(true);
     }
+
+    public void NoSeeHealthtext()
+    {
+        seeHealthText.SetActive(false);
+    }
+
+    public void SeeCenterImage()
+    {
+        seeCenter.SetActive(true);
+    }
+
+    public void NoSeeCenterImage()
+    {
+        seeCenter.SetActive(false);
+    }
+
+    
 }

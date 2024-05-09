@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4617283266405171446, guid: 2206ca88b5609b145a1ec20277d6289e, type: 3}
   agent: {fileID: 8856400446554141503}
-  sight: 10
+  sight: 9
 --- !u!136 &2613494877606613378
 CapsuleCollider:
   m_ObjectHideFlags: 0

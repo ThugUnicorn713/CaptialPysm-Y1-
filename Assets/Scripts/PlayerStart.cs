@@ -8,6 +8,8 @@ public class PlayerStart : MonoBehaviour
 
      void Awake()
      {
+        GameManager.instance.SeeHealthText();
+        GameManager.instance.SeeCenterImage();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = playerStart; 
      }

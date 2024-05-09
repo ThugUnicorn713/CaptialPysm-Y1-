@@ -10,9 +10,11 @@ public class Pin : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        GameManager.instance.NoSeeCenterImage();
        
         pinPanel.SetActive(true); 
         gameObject.SetActive(false);
+        GameManager.instance.SeeCenterImage();
     }
 
 

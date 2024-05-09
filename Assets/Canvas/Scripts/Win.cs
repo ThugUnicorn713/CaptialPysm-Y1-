@@ -12,6 +12,8 @@ public class Win : MonoBehaviour
         Cursor.visible = true;
         
         GameManager.instance.NoSeebanktext();
+        GameManager.instance.NoSeeHealthtext();
+        GameManager.instance.NoSeeCenterImage();
         winPanel.SetActive(true);
         GameManager.instance.PrintWinScore();
     }

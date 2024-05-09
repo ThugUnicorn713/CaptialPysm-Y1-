@@ -14,17 +14,15 @@ public class PTG : MonoBehaviour
     public int enemyAmount = 10;
 
 
-    private void Start()
-    {
-        gameObject.SetActive(true);
-    }
     public void OpenPanel()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
         ptgPanel.SetActive(true);
-       
+        GameManager.instance.NoSeebanktext();
+        GameManager.instance.NoSeeHealthtext();
+        GameManager.instance.NoSeeCenterImage();
     }
 
     public void Accept()
@@ -33,11 +31,17 @@ public class PTG : MonoBehaviour
         Debug.Log("Your money is taken...");
         gameObject.SetActive(false);
         ptgPanel.SetActive(false);
+        GameManager.instance.SeeBankText();
+        GameManager.instance.SeeHealthText();
+        GameManager.instance.SeeCenterImage();
     }
 
     public void Decline()
     {
         ptgPanel.SetActive(false);
+        GameManager.instance.SeeBankText();
+        GameManager.instance.SeeHealthText();
+        GameManager.instance.SeeCenterImage();
         enemyAmount *= 2;
         SoManyEnemies();
     }

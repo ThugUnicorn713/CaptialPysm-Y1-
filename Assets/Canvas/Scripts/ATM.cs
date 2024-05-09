@@ -16,6 +16,9 @@ public class ATM : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         atmPanel.SetActive(true);
+        GameManager.instance.NoSeebanktext();
+        GameManager.instance.NoSeeHealthtext();
+        GameManager.instance.NoSeeCenterImage();
     }
 
     public void CheckPin()
@@ -34,5 +37,8 @@ public class ATM : MonoBehaviour
 
         
         atmPanel.SetActive(false);
+        GameManager.instance.SeeBankText();
+        GameManager.instance.SeeHealthText();
+        GameManager.instance.SeeCenterImage();
     }
 }
