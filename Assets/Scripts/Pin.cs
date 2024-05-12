@@ -15,7 +15,7 @@ public class Pin : MonoBehaviour
        
         pinPanel.SetActive(true); 
         gameObject.SetActive(false);
-        GameManager.instance.SeeCenterImage();
+        
     }
 
 

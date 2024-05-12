@@ -20,7 +20,8 @@ public class shoot : MonoBehaviour
 
                 billbullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(launchVelocity, 0, 0));
 
-                moneyPool--;
+                moneyPool = moneyPool - 100;
+
                 GameManager.instance.UpdateBankUI();
             }
             else
