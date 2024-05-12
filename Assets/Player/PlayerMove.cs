@@ -45,8 +45,6 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-
-
         void Locomotion()
     {
         if (characterController.isGrounded) // When grounded, set y-axis to zero (to ignore it)
